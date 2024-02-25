@@ -1,0 +1,98 @@
+@import 'nav.css';
+@import 'footer.css';
+
+body {
+    background-color: #cfe8d5; /* Fondo verde tono claro */
+    font-family: Arial, sans-serif;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.article-details {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 50%; /* Ancho del contenedor de detalles del artículo */
+    max-width: 600px;
+    display: flex;
+    flex-direction: column; /* Alinear elementos verticalmente */
+    align-items: center; /* Centrar los elementos horizontalmente */
+}
+.card {
+    background-color: white; /* Fondo blanco para las tarjetas */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 10px; /* Agregar espacio entre las tarjetas */
+    margin-top: 10px;
+    margin-right: 10px; /* Agregar espacio a la derecha de cada tarjeta */
+    width: 300px; /* Ancho de las tarjetas */
+    display: inline-block;
+    cursor: pointer;
+    text-align: center; /* Centrar el contenido dentro de las tarjetas */
+    
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%; /* Ajustar la imagen al ancho de la tarjeta */
+    height: 200px; /* Establecer una altura fija para las imágenes */
+    object-fit: cover; /* Ajustar el tamaño de la imagen manteniendo su relación de aspecto y recortando el exceso */
+    display: block; /* Centrar la imagen horizontalmente */
+    margin: 0 auto 10px; /* Centrar la imagen verticalmente y agregar espacio entre la imagen y el texto */
+    border-radius: 8px;
+}
+
+
+.card h2 {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.card p {
+    font-size: 1em;
+    color: #333;
+    margin-top: 10px
+}
+
+/* Otros estilos para el encabezado y el pie de página */
+
+
+.hero-section{
+    width: 100%;
+    height: calc(100vh - 120px);
+    background-image: url('../img/header.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+
+}
+
+.hero-section .logo{
+    height: 150px;
+    display: block;
+    margin: auto;
+    border-radius: 80px ;
+
+}
+
+.hero-section .sub-heading{
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 35px;
+    font-weight: 300;
+}
+
+h2 {
+    text-transform: capitalize;
+}
+

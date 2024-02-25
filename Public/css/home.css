@@ -1,0 +1,284 @@
+@import 'nav.css';
+@import 'footer.css';
+
+
+.article-details {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 50%; /* Ancho del contenedor de detalles del artículo */
+    max-width: 600px;
+    display: flex;
+    flex-direction: column; /* Alinear elementos verticalmente */
+    align-items: center; /* Centrar los elementos horizontalmente */
+}
+.card {
+    background-color: white; /* Fondo blanco para las tarjetas */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 10px; /* Agregar espacio entre las tarjetas */
+    margin-top: 10px;
+    margin-right: 10px; /* Agregar espacio a la derecha de cada tarjeta */
+    width: 300px; /* Ancho de las tarjetas */
+    display: inline-block;
+    cursor: pointer;
+    text-align: center; /* Centrar el contenido dentro de las tarjetas */
+    
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%; /* Ajustar la imagen al ancho de la tarjeta */
+    height: 200px; /* Establecer una altura fija para las imágenes */
+    object-fit: cover; /* Ajustar el tamaño de la imagen manteniendo su relación de aspecto y recortando el exceso */
+    display: block; /* Centrar la imagen horizontalmente */
+    margin: 0 auto 10px; /* Centrar la imagen verticalmente y agregar espacio entre la imagen y el texto */
+    border-radius: 8px;
+}
+
+
+.card h2 {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.card p {
+    font-size: 1em;
+    color: #333;
+    margin-top: 10px
+}
+
+.hero-section {
+    width: 100%;
+    height: calc(100vh - 120px);
+    background-image: url('../img/header.jpg');
+    background-size: cover;
+    background-position: center; /* Ajusta la posición de la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0; /* Elimina el margen */
+    padding: 0; /* Elimina el relleno */
+}
+.hero-section .logo {
+    height: 150px;
+    border-radius: 80px;
+    margin: 0; /* Elimina el margen */
+    padding: 0; /* Elimina el relleno */
+}
+
+.hero-section .content {
+    margin: 0; /* Elimina el margen */
+    padding: 0; /* Elimina el relleno */
+}
+
+.hero-section .sub-heading {
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 35px;
+    font-weight: 300;
+    margin: 0; /* Elimina el margen */
+    padding: 0; /* Elimina el relleno */
+}
+.product {
+    max-width: 100%; /* Establecer un ancho máximo */
+    padding-left: 0; /* Eliminar relleno izquierdo */
+    padding-right: 0; /* Eliminar relleno derecho */
+}
+.product-category{
+    padding: 0 10vw;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    text-transform: capitalize;
+}
+
+.product-container {
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centrar las tarjetas horizontalmente */
+}
+
+.product-container::-webkit-scrollbar{
+    display: none;
+}
+.product-card {
+    max-width: 100%; /* Establece un ancho máximo para las tarjetas */
+    margin-right: 0; /* Elimina el margen derecho */
+    margin-bottom: 20px; /* Agrega un espacio inferior entre las tarjetas */
+}
+
+.product-image{
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+}
+
+.product-image img {
+    max-width: 100%; /* La imagen ocupará como máximo el 100% del ancho del contenedor */
+    max-height: auto; /* La imagen ocupará como máximo el 100% del alto del contenedor */
+    /*height: auto;  Permite que la imagen mantenga su proporción original */
+    display: block;
+}
+
+
+
+.product-thumb{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+
+}
+
+.discount-tag{
+    position: absolute;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    color: #ff7d7d;
+    right: 10px;
+    top: 10px;
+    text-transform: capitalize;
+}
+
+.card-btn{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 10px;
+    width: 90%;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    background: #fff;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.product-card:hover .card-btn{
+    opacity: 1;
+
+}
+
+.card-btn:hover{
+    background: #efefef;
+
+}
+
+.product-info{
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+
+}
+
+.product-brand{
+    text-transform: uppercase;
+
+}
+
+.product-short-des{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    opacity: 0.5;
+    text-transform: capitalize;
+    margin: 5px 0;
+}
+
+.price{
+    font-weight: 900;
+    font-size: 20px;
+ }
+
+ .actual-price{
+     margin-left: 20px;
+     opacity: 0.5;
+     text-decoration: line-through;
+ }
+
+ .collection-container{
+     width: 100%;
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     grid-gap: 10px;
+
+ }
+
+ .collection{
+     position: relative;
+ }
+
+ .collection img{
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+
+ }
+
+ .collection p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+    text-transform: capitalize;
+
+ }
+
+ .collection:nth-child(3){
+     grid-column: span 2;
+     margin-bottom: 10px;
+
+ }
+
+ @media (max-width: 400px) {
+    .hero-section {
+        height: auto;
+    }
+
+    .hero-section .logo {
+        height: 100px;
+    }
+
+    .hero-section .sub-heading {
+        font-size: 20px;
+    }
+
+    .product-category {
+        padding: 0 5vw;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .product-container {
+        padding: 0 5vw;
+        margin-right: 0;
+    }
+
+    .product-card {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    
+
+    .collection-container {
+        grid-template-columns: 1fr;
+    }
+}

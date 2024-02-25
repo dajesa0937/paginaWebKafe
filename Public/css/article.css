@@ -1,0 +1,48 @@
+@import 'nav.css';
+@import 'footer.css';
+
+body {
+    background-color: #cfe8d5; /* Fondo verde tono claro */
+    font-family: Arial, sans-serif;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.article-details-container {
+    display: flex;
+    flex-direction: column; /* Alinear elementos verticalmente */
+    align-items: center; /* Centrar los elementos horizontalmente */
+}
+
+.article-details-container img {
+    width: 40%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px; /* Ajusta el espacio entre la imagen y el nombre */
+    margin-top: 20px;
+}
+
+.article-details-container h2 {
+    text-transform: capitalize;
+    margin-bottom: 10px; /* Ajusta el espacio entre el nombre y el precio */
+}
+
+.article-details-container p {
+    margin-bottom: 10px; /* Ajusta el espacio entre el precio y otros elementos */
+    font-size: 20px;
+    font-weight: 50px;
+}
+
+#payButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
