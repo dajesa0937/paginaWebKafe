@@ -8,13 +8,7 @@ productImages.forEach((item) => {
         // Cambiar la propiedad background-image del contenedor image-slider
         imageSlider.style.backgroundImage = `url('${imageUrl}')`;
         // Obtener otros datos del producto si están disponibles
-        const productBrand = item.parentNode.querySelector('.product-brand');
-        const price = item.parentNode.querySelector('.price');
-        const actualPrice = item.parentNode.querySelector('.actual-price');
-        // Verificar si los elementos existen antes de acceder a sus propiedades
-        const productName = productBrand ? productBrand.innerText : '';
-        const productPrice = price ? price.innerText : '';
-        const productActualPrice = actualPrice ? actualPrice.innerText : '';
+        
     });
 
 });
@@ -24,3 +18,10 @@ productImages.forEach((item) => {
     function redirectToProduct() {
         window.location.href = 'product.html';
     }
+
+    function abrirWhatsApp() {
+        // Aquí colocamos la lógica para abrir un chat de WhatsApp
+        // Debes cambiar el número de teléfono con el prefijo internacional correspondiente (por ejemplo, +57 para Colombia)
+        window.open('https://api.whatsapp.com/send?phone=573164071839', '_blank'); // Cambia el número de teléfono según sea necesario
+    }
+     

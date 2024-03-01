@@ -38,19 +38,20 @@ const createFooter = () => {
        Todos nuestros productos son garantizados para una mejor experiencia y confort -
        para sentirse cómodo con su apariencia personal. </p> 
 
-       <p class="footer-title2">kfetiendavirtual@gmail.com - soportesoftdajesa@gmail.com </p> 
+       <p class="footer-title2">Email: comercialinversioneskafe@gmail.com</p> 
        <p class="info">Movil: 316 407 1839 </p> 
        <div class="footer-social-container">
            <div>
-               <a href="#" class="social-link">terminos y condiciones</a>
-               <a href="#" class="social-link">privacy pages</a>
+               <a  class="social-link">Visita Nuestras Redes Sociales 
+                =====>>>>> ===>>>  >>>>>>>>>>></a>
+               
            </div>
 
            <div>
-            <a href="#" class="social-link">instagram</a>
-            <a href="#" class="social-link">facebook</a>
-            <a href="#" class="social-link">tik-tok</a>
-            <a href="#" class="social-link">whatsapp</a>
+            <a href="https://www.instagram.com/kfe.desings/" class="social-link">instagram</a>
+            <a href="https://www.facebook.com/kfe.desings/" class="social-link">Facebook</a>
+            <a href="https://wa.me/573164071839" class="social-link">whatsapp</a>
+
         </div>
 
 

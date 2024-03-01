@@ -21,28 +21,35 @@ body {
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px; /* Ajusta el espacio entre la imagen y el nombre */
-    margin-top: 20px;
+    margin-top: 8px;
 }
 
 .article-details-container h2 {
     text-transform: capitalize;
-    margin-bottom: 10px; /* Ajusta el espacio entre el nombre y el precio */
+    margin-bottom: 0px; /* Ajusta el espacio entre el nombre y el precio */
 }
 
 .article-details-container p {
-    margin-bottom: 10px; /* Ajusta el espacio entre el precio y otros elementos */
-    font-size: 20px;
-    font-weight: 50px;
+    margin-bottom: 0px; /* Ajusta el espacio entre el precio y otros elementos */
+    font-size: 18px;
+    font-weight: 30px;
 }
-
 #payButton {
     display: block;
     margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #007bff;
+    padding: 10px 30px;
+    background-color: #25d366;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px; /* Ajusta el valor según el grado de redondez deseado */
     cursor: pointer;
     font-size: 16px;
 }
+#payButton img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px; /* Ajusta el espacio entre la imagen y el texto */
+    border-radius: 40%; /* Hace que la imagen se vea redonda */
+}
+
+

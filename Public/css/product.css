@@ -103,11 +103,11 @@
     background: #383838;
     color: #fff;
 }
-
 .btn {
-    width: 48%;
-    padding: 20px;
-    border-radius: 5px;
+    width: auto; /* Ancho automático para adaptarse al contenido */
+    height: auto; /* Altura automática para adaptarse al contenido */
+    padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+    border-radius: 5px; /* Borde redondeado */
     background: none;
     border: 1px solid #383838;
     color: #383838;
@@ -115,17 +115,25 @@
     cursor: pointer;
     margin: 20px 0;
     text-transform: capitalize;
+    display: inline-flex; /* Alinea los elementos como una fila */
+    align-items: center; /* Centra verticalmente los elementos */
 }
+
+.btn img {
+    width: 80px; /* Establece el ancho de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    margin-right: 10px; /* Agrega un espacio entre la imagen y el texto */
+}
+
 
 .cart-btn {
     margin-right: 2%;
     background: #383838;
     color: #fff;
 }
-
 .detail-des {
     padding: 0 10vw;
-    text-transform: capitalize;
 }
 
 .heading {
@@ -134,6 +142,9 @@
 }
 
 .des {
-    color: #383838;
-    line-height: 25px;
+    color: #383838; /* Color de texto oscuro */
+    font-size: 18px; /* Tamaño de letra */
+    line-height: 1.6; /* Espaciado entre líneas */
+    background-color: #f7f7f7; /* Color de fondo suave */
+    padding: 20px; /* Espaciado interno */
 }

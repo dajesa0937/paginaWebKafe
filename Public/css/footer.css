@@ -77,7 +77,7 @@ footer{
     color: #fff;
     margin-left: 20px ;
     text-transform: capitalize;
-
+    font-size: 20px;
 }
 
 .social-link:nth-child(1){

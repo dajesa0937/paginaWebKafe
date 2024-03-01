@@ -1,9 +1,11 @@
+
+
 const articles = [
-    { id: 1, name: "aretes filigrana", price: 50000, image: "img/imagenFiligrana03.jpeg" },
-    { id: 2, name: "cadena  filigrana", price: 135000, image: "img/imagenFiligrana02.jpeg" },
-    { id: 3, name: "anillos amazonico", price: 145000, image: "img/imganillos01.jpeg" },
-    { id: 4, name: "anillos filigrana", price: 123000, image: "img/imagenFiligrana05.jpeg" },
-    { id: 5, name: "aretes filigrana", price: 145000, image: "img/imagenFiligrana06.jpeg" }
+    { id: 1, name: "camisetas", price: 50000, image: "img/imgcamis01.jpeg" },
+    { id: 2, name: "mochilas", price: 135000, image: "img/imgmoch08.jpeg" },
+    { id: 3, name: "camisetas de algodon", price: 145000, image: "img/imgcamis03.jpeg" },
+    { id: 4, name: "cadena filigrana", price: 123000, image: "img/imagenFiligrana04.jpeg" },
+    { id: 5, name: "aretes filigrana", price: 145000, image: "img/imagenFiligrana09.jpeg" }
 ];
 
 function createArticleCard(article) {
@@ -25,7 +27,7 @@ function createArticleCard(article) {
    
     card.addEventListener('click', () => {
         // Redirigir a article.html con el ID del artículo en la URL
-        window.location.href = `article.html?id=${article.id}&gender=mujer`; // Aquí se pasa el género como parámetro también
+        window.location.href = `article.html?id=${article.id}&gender=index`; // Aquí se pasa el género como parámetro también
     });
     
     
@@ -40,4 +42,4 @@ function renderArticles() {
     });
 }
 
-renderArticles();     
+renderArticles();   
