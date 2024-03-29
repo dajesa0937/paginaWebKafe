@@ -39,7 +39,7 @@ const createFooter = () => {
        Todos nuestros productos son garantizados para una mejor experiencia y confort -
        para sentirse cómodo con su apariencia personal. </p> 
 
-       <p class="footer-title2">Email: comercialinversioneskafe@gmail.com</p> 
+       <p class="footer-title2">Email: ventas@kfetiendavirtual.com</p> 
        <p class="info">Movil: 316 407 1839 </p> 
        <div class="footer-social-container">
            <div>
