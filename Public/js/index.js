@@ -8,7 +8,14 @@ const articles = [
     { id: 5, name: "camiseta lycra fria", price: 30000, image: "img/camiseta11.jpeg" },
     { id: 6, name: "camiseta lycra fria", price: 30000, image: "img/camiseta1.jpeg" },
     { id: 7, name: "camiseta lycra fria", price: 30000, image: "img/camieseta2.jpeg" },
-    { id: 8, name: "camiseta lycra fria", price: 30000, image: "img/camiseta3.jpeg" }
+    { id: 8, name: "camiseta lycra fria", price: 30000, image: "img/camiseta3.jpeg" },
+    { id: 9, name: "pijamas algodon", price: 20000, image: "img/pijamas01.jpeg" },
+    { id: 10, name: "pijamas algodon", price: 20000, image: "img/pijamas02.jpeg" },
+    { id: 11, name: "pijamas algodon", price: 20000, image: "img/pijamas03.jpeg" },
+    { id: 12, name: "pijamas algodon", price: 20000, image: "img/pijamas04.jpeg" },
+    { id: 13, name: "pijamas algodon", price: 20000, image: "img/pijamas05.jpeg" },
+    { id: 14, name: "tulas lona-dril 40x40 cms", price: 25000, image: "img/tulas01.jpeg" },
+    { id: 15, name: "tulas lona-dril 40x40 cms", price: 25000, image: "img/tulas02.jpeg" }
 ];
 
 function createArticleCard(article) {

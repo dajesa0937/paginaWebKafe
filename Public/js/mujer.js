@@ -12,7 +12,14 @@ const articles = [
     { id: 11, name: "cadena  filigrana", price: 250000, image: "img/imagenFiligrana02.jpeg" },
     { id: 12, name: "anillos amazonico", price: 50000, image: "img/imganillos01.jpeg" },
     { id: 13, name: "anillos filigrana", price: 100000, image: "img/imagenFiligrana05.jpeg" },
-    { id: 14, name: "aretes filigrana", price: 145000, image: "img/imagenFiligrana06.jpeg" }
+    { id: 14, name: "aretes filigrana", price: 145000, image: "img/imagenFiligrana06.jpeg" },
+    { id: 15, name: "pijamas algodon", price: 20000, image: "img/pijamas01.jpeg" },
+    { id: 16, name: "pijamas algodon", price: 20000, image: "img/pijamas02.jpeg" },
+    { id: 17, name: "pijamas algodon", price: 20000, image: "img/pijamas03.jpeg" },
+    { id: 18, name: "pijamas algodon", price: 20000, image: "img/pijamas04.jpeg" },
+    { id: 19, name: "pijamas algodon", price: 20000, image: "img/pijamas05.jpeg" },
+    { id: 20, name: "tulas lona-dril 40x40 cms", price: 25000, image: "img/tulas01.jpeg" },
+    { id: 21, name: "tulas lona-dril 40x40 cms", price: 25000, image: "img/tulas02.jpeg" },
 ];
 
 function createArticleCard(article) {

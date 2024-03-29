@@ -8,12 +8,13 @@ const index = [
     { id: 6, name: "camiseta lycra fria", price: 30000, image: "img/camiseta1.jpeg" },
     { id: 7, name: "camiseta lycra fria", price: 30000, image: "img/camieseta2.jpeg" },
     { id: 8, name: "camiseta lycra fria", price: 30000, image: "img/camiseta3.jpeg" },
-    { id: 9, name: "camiseta lycra fria", price: 30000, image: "img/camiseta3.jpeg" },
-    { id: 10, name: "aretes filigrana", price: 50000, image: "img/imagenFiligrana03.jpeg" },
-    { id: 11, name: "cadena  filigrana", price: 135000, image: "img/imagenFiligrana02.jpeg" },
-    { id: 12, name: "anillos amazonico", price: 145000, image: "img/imganillos01.jpeg" },
-    { id: 13, name: "anillos filigrana", price: 123000, image: "img/imagenFiligrana05.jpeg" },
-    { id: 14, name: "aretes filigrana", price: 145000, image: "img/imagenFiligrana06.jpeg" }
+    { id: 9, name: "pijamas algodon", price: 20000, image: "img/pijamas01.jpeg" },
+    { id: 10, name: "pijamas algodon", price: 20000, image: "img/pijamas02.jpeg" },
+    { id: 11, name: "pijamas algodon", price: 20000, image: "img/pijamas03.jpeg" },
+    { id: 12, name: "pijamas algodon", price: 20000, image: "img/pijamas04.jpeg" },
+    { id: 13, name: "pijamas algodon", price: 20000, image: "img/pijamas05.jpeg" },
+    { id: 14, name: "tulas lona-dril 40x40 cms", price: 25000, image: "img/tulas01.jpeg" },
+    { id: 15, name: "tulas lona-dril 40x40 cms", price: 25000, image: "img/tulas02.jpeg" }
 ];
 
 const mujer = [
@@ -31,7 +32,14 @@ const mujer = [
     { id: 11, name: "cadena  filigrana", price: 250000, image: "img/imagenFiligrana02.jpeg" },
     { id: 12, name: "anillos amazonico", price: 50000, image: "img/imganillos01.jpeg" },
     { id: 13, name: "anillos filigrana", price: 100000, image: "img/imagenFiligrana05.jpeg" },
-    { id: 14, name: "aretes filigrana", price: 145000, image: "img/imagenFiligrana06.jpeg" }
+    { id: 14, name: "aretes filigrana", price: 145000, image: "img/imagenFiligrana06.jpeg" },
+    { id: 15, name: "pijamas algodon", price: 20000, image: "img/pijamas01.jpeg" },
+    { id: 16, name: "pijamas algodon", price: 20000, image: "img/pijamas02.jpeg" },
+    { id: 17, name: "pijamas algodon", price: 20000, image: "img/pijamas03.jpeg" },
+    { id: 18, name: "pijamas algodon", price: 20000, image: "img/pijamas04.jpeg" },
+    { id: 19, name: "pijamas algodon", price: 20000, image: "img/pijamas05.jpeg" },
+    { id: 20, name: "tulas lona-dril 40x40 cms", price: 25000, image: "img/tulas01.jpeg" },
+    { id: 21, name: "tulas lona-dril 40x40 cms", price: 25000, image: "img/tulas02.jpeg" }
 ];
 
 const hombre = [
