@@ -1,9 +1,9 @@
 const articles = [
-    { id: 1, name: "anillo amazonico", price: 60000, image: "img/imganillos02.jpeg" },
-    { id: 2, name: "mochila guajira", price: 130000, image: "img/imgmoch05.jpeg" },
-    { id: 3, name: "mochila guajira", price: 135000, image: "img/imgmoch04.jpeg" },
-    { id: 4, name: "filigrana momposina", price: 130000, image: "img/imagenFiligrana08.jpeg" },
-    { id: 5, name: "mochila guajira", price: 130000, image: "img/imgmoch02.jpeg" }
+    { id: 1, name: "anillo amazonico", price: 50000, image: "img/imganillos02.jpeg" },
+    { id: 2, name: "mochila guajira", price: 120000, image: "img/imgmoch05.jpeg" },
+    { id: 3, name: "mochila guajira", price: 120000, image: "img/imgmoch04.jpeg" },
+    { id: 4, name: "filigrana momposina", price: 230000, image: "img/imagenFiligrana08.jpeg" },
+    { id: 5, name: "mochila guajira", price: 120000, image: "img/imgmoch02.jpeg" }
 ];
 
 function createArticleCard(article) {

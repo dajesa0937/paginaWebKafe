@@ -26,6 +26,7 @@ const createFooter = () => {
             <li><a href="artesania.html" class="footer-link">cadenas</a> </li>
             <li><a href="artesania.html" class="footer-link">anillos</a> </li>
             <li><a href="artesania.html" class="footer-link">brazaletes</a> </li>
+            <li><a href="artesania.html" class="footer-link">Vinos</a> </li>
         </ul>
 
         

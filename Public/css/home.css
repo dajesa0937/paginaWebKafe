@@ -14,7 +14,7 @@
     align-items: center; /* Centrar los elementos horizontalmente */
 }
 .card {
-    background-color: white; /* Fondo blanco para las tarjetas */
+    background-color: rgb(244, 223, 223); /* Fondo blanco para las tarjetas */
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -33,11 +33,9 @@
 }
 
 .card img {
-    width: 100%; /* Ajustar la imagen al ancho de la tarjeta */
-    height: 200px; /* Establecer una altura fija para las imágenes */
-    object-fit: cover; /* Ajustar el tamaño de la imagen manteniendo su relación de aspecto y recortando el exceso */
-    display: block; /* Centrar la imagen horizontalmente */
-    margin: 0 auto 10px; /* Centrar la imagen verticalmente y agregar espacio entre la imagen y el texto */
+    width: 80%; /* Ajusta la imagen al ancho de la tarjeta */
+    height: 250px; /* Establece una altura fija para las imágenes */
+    object-fit: cover; /* Ajusta el tamaño de la imagen manteniendo su relación de aspecto y recortando el exceso */
     border-radius: 8px;
 }
 
@@ -104,18 +102,21 @@
 .product-container {
     padding: 0;
     display: flex;
-    justify-content: center; /* Centrar las tarjetas horizontalmente */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en varias líneas */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
 }
 
 .product-container::-webkit-scrollbar{
     display: none;
 }
 .product-card {
-    max-width: 100%; /* Establece un ancho máximo para las tarjetas */
-    margin-right: 0; /* Elimina el margen derecho */
-    margin-bottom: 20px; /* Agrega un espacio inferior entre las tarjetas */
+    flex: 0 1 calc(25% - 20px); /* Establece el tamaño de las tarjetas, 25% del contenedor con un margen de 20px */
+    margin: 0 10px 20px; /* Margen entre las tarjetas */
+    max-width: 300px; /* Ancho máximo para las tarjetas */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho */
+    cursor: pointer;
+    text-align: center; /* Centra el contenido dentro de las tarjetas */
 }
-
 .product-image{
     position: relative;
     width: 100%;

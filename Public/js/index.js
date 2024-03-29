@@ -1,11 +1,14 @@
 
 
 const articles = [
-    { id: 1, name: "camisetas", price: 50000, image: "img/imgcamis01.jpeg" },
-    { id: 2, name: "mochilas", price: 135000, image: "img/imgmoch08.jpeg" },
-    { id: 3, name: "camisetas de algodon", price: 145000, image: "img/imgcamis03.jpeg" },
-    { id: 4, name: "cadena filigrana", price: 123000, image: "img/imagenFiligrana04.jpeg" },
-    { id: 5, name: "aretes filigrana", price: 145000, image: "img/imagenFiligrana09.jpeg" }
+    { id: 1, name: "camiseta lycra fria", price: 30000, image: "img/camiseta7.jpeg" },
+    { id: 2, name: "camiseta lycra fria", price: 30000, image: "img/camiseta8.jpeg" },
+    { id: 3, name: "camiseta lycra fria", price: 30000, image: "img/camiseta9.jpeg" },
+    { id: 4, name: "camiseta lycra fria", price: 30000, image: "img/camiseta10.jpeg" },
+    { id: 5, name: "camiseta lycra fria", price: 30000, image: "img/camiseta11.jpeg" },
+    { id: 6, name: "camiseta lycra fria", price: 30000, image: "img/camiseta1.jpeg" },
+    { id: 7, name: "camiseta lycra fria", price: 30000, image: "img/camieseta2.jpeg" },
+    { id: 8, name: "camiseta lycra fria", price: 30000, image: "img/camiseta3.jpeg" }
 ];
 
 function createArticleCard(article) {

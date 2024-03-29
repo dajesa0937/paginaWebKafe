@@ -16,9 +16,9 @@ body {
 }
 
 .article-details-container img {
-    width: 40%;
-    height: 300px;
-    object-fit: cover;
+    width: 20%; /* Ajusta el ancho de la imagen al 100% del ancho del contenedor */
+    height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor cubriéndolo completamente */
     border-radius: 8px;
     margin-bottom: 10px; /* Ajusta el espacio entre la imagen y el nombre */
     margin-top: 8px;
@@ -27,6 +27,7 @@ body {
 .article-details-container h2 {
     text-transform: capitalize;
     margin-bottom: 0px; /* Ajusta el espacio entre el nombre y el precio */
+    position: relative;
 }
 
 .article-details-container p {

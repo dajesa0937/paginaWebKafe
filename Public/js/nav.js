@@ -19,7 +19,7 @@ const createNav = () => {
             <li class="link-item"><a href="index.html" class="link"> Inicio</a> </li>
             <li class="link-item"><a href="mujer.html" class="link"> Mujeres</a> </li>   
             <li class="link-item"><a href="hombre.html" class="link"> Hombres</a> </li>
-            <li class="link-item"><a href="artesania.html" class="link"> Artesanías</a> </li>    
+            <li class="link-item"><a href="artesania.html" class="link"> Artesanías-Vinos</a> </li>    
         </ul>   
     `;
 }
