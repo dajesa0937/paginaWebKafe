@@ -1,35 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accesorios KFE</title>
-
-    <link rel="stylesheet" href="css/mujer.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/footer.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ropa para mujer por mayor | K'FE Confecciones</title>
+  <meta name="description" content="Camisetas y blusas para mujer en lycra fría, fabricadas en Medellín. Precio especial al por mayor.">
+  <meta name="theme-color" content="#2B1B14">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+<body data-pagina="mujer" data-categoria="mujer">
+  <div data-cabecera></div>
 
-<body>
-    <header>
-        <!-- Tu encabezado aquí -->
-        <nav class="navbar"></nav>
-    </header>
-    
-    <main>
-        <div class="card-container" id="cardContainer">
-            <!-- Las tarjetas de los artículos se añadirán aquí dinámicamente con JavaScript -->
+  <main>
+    <section class="pagina-hero">
+      <img src="img/opt/banner-mujer.jpg" alt="">
+      <div class="contenedor">
+        <p class="migas"><a href="index.html">Inicio</a> / Mujer</p>
+        <span class="eyebrow">Colección dama</span>
+        <h1>Mujer</h1>
+        <p>Camisetas y blusas en lycra fría con estampados que se venden rápido. Frescas, suaves y con caída perfecta.</p>
+      </div>
+    </section>
+
+    <section class="seccion" style="padding-top:40px">
+      <div class="contenedor">
+        <div class="barra-filtros">
+          <div class="chips" id="chips"></div>
+          <label class="orden">Ordenar
+            <select id="orden">
+              <option value="destacados">Más pedidos</option>
+              <option value="menor">Menor precio</option>
+              <option value="mayor">Mayor precio</option>
+            </select>
+          </label>
         </div>
-    </main>
+        <p class="contador" id="contador"></p>
+        <div class="grid-productos" id="grid-productos"></div>
 
-    <footer></footer>
+        <div class="aviso-mayor">
+          <p>¿Compras para revender? Obtén precio de fábrica desde 6 unidades surtidas.<span>Combina referencias, tallas y colores en un mismo pedido.</span></p>
+          <a class="btn btn--primario" href="mayoristas.html">Ver precios por mayor</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <div data-pie></div>
 
-    <script src="js/mujer.js"></script>
-    <script src="js/nav.js"></script>   
-    <script src="js/footer.js"></script>   
-    <script src="js/index.js"></script> <!-- Nuevo archivo JavaScript para index.html -->
-</body>   
+  <script src="js/products.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/catalog.js"></script>
+</body>
 </html>

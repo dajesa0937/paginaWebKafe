@@ -1,108 +1,116 @@
-// Definimos los arreglos de artículos para cada categoría
-const index = [
-    { id: 1, name: "camiseta lycra fria", price: 30000, image: "img/camiseta7.jpeg" },
-    { id: 2, name: "camiseta lycra fria", price: 30000, image: "img/camiseta8.jpeg" },
-    { id: 3, name: "camiseta lycra fria", price: 30000, image: "img/camiseta9.jpeg" },
-    { id: 4, name: "camiseta lycra fria", price: 30000, image: "img/camiseta10.jpeg" },
-    { id: 5, name: "camiseta lycra fria", price: 30000, image: "img/camiseta11.jpeg" },
-    { id: 6, name: "camiseta lycra fria", price: 30000, image: "img/camiseta1.jpeg" },
-    { id: 7, name: "camiseta lycra fria", price: 30000, image: "img/camieseta2.jpeg" },
-    { id: 8, name: "camiseta lycra fria", price: 30000, image: "img/camiseta3.jpeg" },
-    { id: 9, name: "pijamas algodon", price: 20000, image: "img/pijamas01.jpeg" },
-    { id: 10, name: "pijamas algodon", price: 20000, image: "img/pijamas02.jpeg" },
-    { id: 11, name: "pijamas algodon", price: 20000, image: "img/pijamas03.jpeg" },
-    { id: 12, name: "pijamas algodon", price: 20000, image: "img/pijamas04.jpeg" },
-    { id: 13, name: "pijamas algodon", price: 20000, image: "img/pijamas05.jpeg" },
-    { id: 14, name: "tulas lona-dril 40x40 cms", price: 25000, image: "img/tulas01.jpeg" },
-    { id: 15, name: "tulas lona-dril 40x40 cms", price: 25000, image: "img/tulas02.jpeg" }
-];
+/* =========================================================
+   K'FE — Detalle de producto (article.html?id=...)
+   ========================================================= */
+(function () {
+  const cont = document.getElementById("detalle");
+  if (!cont) return;
+  const id = new URLSearchParams(location.search).get("id");
+  const p = PRODUCTOS.find((x) => x.id === id);
 
-const mujer = [
-    // Definir los artículos para la categoría mujer aquí
-    { id: 1, name: "camiseta lycra fria", price: 30000, image: "img/camiseta7.jpeg" },
-    { id: 2, name: "camiseta lycra fria", price: 30000, image: "img/camiseta8.jpeg" },
-    { id: 3, name: "camiseta lycra fria", price: 30000, image: "img/camiseta9.jpeg" },
-    { id: 4, name: "camiseta lycra fria", price: 30000, image: "img/camiseta10.jpeg" },
-    { id: 5, name: "camiseta lycra fria", price: 30000, image: "img/camiseta11.jpeg" },
-    { id: 6, name: "camiseta lycra fria", price: 30000, image: "img/camiseta1.jpeg" },
-    { id: 7, name: "camiseta lycra fria", price: 30000, image: "img/camieseta2.jpeg" },
-    { id: 8, name: "camiseta lycra fria", price: 30000, image: "img/camiseta3.jpeg" },
-    { id: 9, name: "camiseta lycra fria", price: 30000, image: "img/camiseta3.jpeg" },
-    { id: 10, name: "aretes filigrana", price: 150000, image: "img/imagenFiligrana03.jpeg" },
-    { id: 11, name: "cadena  filigrana", price: 250000, image: "img/imagenFiligrana02.jpeg" },
-    { id: 12, name: "anillos amazonico", price: 50000, image: "img/imganillos01.jpeg" },
-    { id: 13, name: "anillos filigrana", price: 100000, image: "img/imagenFiligrana05.jpeg" },
-    { id: 14, name: "aretes filigrana", price: 145000, image: "img/imagenFiligrana06.jpeg" },
-    { id: 15, name: "pijamas algodon", price: 20000, image: "img/pijamas01.jpeg" },
-    { id: 16, name: "pijamas algodon", price: 20000, image: "img/pijamas02.jpeg" },
-    { id: 17, name: "pijamas algodon", price: 20000, image: "img/pijamas03.jpeg" },
-    { id: 18, name: "pijamas algodon", price: 20000, image: "img/pijamas04.jpeg" },
-    { id: 19, name: "pijamas algodon", price: 20000, image: "img/pijamas05.jpeg" },
-    { id: 20, name: "tulas lona-dril 40x40 cms", price: 25000, image: "img/tulas01.jpeg" },
-    { id: 21, name: "tulas lona-dril 40x40 cms", price: 25000, image: "img/tulas02.jpeg" }
-];
+  if (!p) {
+    cont.innerHTML = `
+      <div class="vacio" style="grid-column:1/-1">
+        <h2>Este producto ya no está disponible</h2>
+        <p>Puede que la referencia se haya agotado. Mira el catálogo actualizado o pregúntanos por algo similar.</p>
+        <a class="btn btn--primario" href="index.html#catalogo">Ver catálogo</a>
+      </div>`;
+    return;
+  }
 
-const hombre = [
-    // Definir los artículos para la categoría hombre aquí
-    { id: 1, name: "camiseta tipo polo", price: 60000, image: "img/imgcamis05.jpg" },
-    { id: 2, name: "camiseta", price: 30000, image: "img/imghbre02.jpeg" },
-    { id: 3, name: "camiseta algodon", price: 35000, image: "img/imghbre01.jpeg" },
-    { id: 4, name: "camisetas variadas", price: 30000, image: "img/imgcamis06.jpg" },
-    { id: 5, name: "camiseta", price: 30000, image: "img/imgcamis02.jpeg" }
-];
+  const cat = CATEGORIAS[p.categoria];
+  document.title = `${p.nombre} | K'FE Confecciones`;
+  document.getElementById("migas").innerHTML =
+    `<a href="index.html">Inicio</a> / <a href="${cat.url}">${cat.nombre}</a> / ${p.nombre}`;
 
-const artesania = [
-    // Definir los artículos para la categoría artesanía aquí
-    { id: 1, name: "anillo amazonico", price: 60000, image: "img/imganillos02.jpeg" },
-    { id: 2, name: "mochila guajira", price: 130000, image: "img/imgmoch05.jpeg" },
-    { id: 3, name: "mochila guajira", price: 135000, image: "img/imgmoch04.jpeg" },
-    { id: 4, name: "filigrana momposina", price: 130000, image: "img/imagenFiligrana08.jpeg" },
-    { id: 5, name: "mochila guajira", price: 130000, image: "img/imgmoch02.jpeg" }
-];
-// Definimos una función para manejar los detalles del artículo
-function showArticleDetails() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const articleId = urlParams.get('id');
-    const gender = urlParams.get('gender');
-    let articles = [];
+  cont.innerHTML = `
+    <div class="detalle__foto"><img src="${p.imagen}" alt="${p.nombre}" width="600" height="750"></div>
+    <div>
+      <span class="eyebrow">${cat.nombre} · ${p.tipo}</span>
+      <h1>${p.nombre}</h1>
+      <p class="detalle__desc">Confección propia en ${p.tela.toLowerCase()}, con acabados cuidados y tallaje pensado para el cuerpo colombiano. Disponible por unidad o por mayor con surtido de tallas y diseños.</p>
 
-    if (gender === 'hombre') {
-        articles = hombre;
-    } else if (gender === 'mujer') {
-        articles = mujer;
-    } else if (gender === 'artesania') {
-        articles = artesania;
-    } else if (gender === 'index') {
-        articles = index; 
+      <div class="precios">
+        <div class="precio-caja">
+          <small>Precio al detal</small>
+          <strong>${formatoCOP(p.precio)}</strong>
+          <span>por unidad</span>
+        </div>
+        <div class="precio-caja precio-caja--mayor">
+          <small>Precio por mayor</small>
+          <strong>Precio de fábrica</strong>
+          <span>desde ${NEGOCIO.minimoMayor} unidades surtidas</span>
+        </div>
+      </div>
+
+      <div class="selector">
+        <label>¿Cómo quieres comprar?</label>
+        <div class="tipo-compra" role="radiogroup">
+          <input type="radio" name="tipo" id="t-mayor" value="mayor" checked>
+          <label for="t-mayor">Por mayor<small>Para revender · mejor precio</small></label>
+          <input type="radio" name="tipo" id="t-detal" value="detal">
+          <label for="t-detal">Al detal<small>Para uso personal</small></label>
+        </div>
+      </div>
+
+      <div class="selector">
+        <label for="cantidad">Cantidad</label>
+        <div class="cantidad">
+          <button type="button" data-paso="-1" aria-label="Menos">−</button>
+          <input id="cantidad" type="number" min="1" value="${NEGOCIO.minimoMayor}" inputmode="numeric">
+          <button type="button" data-paso="1" aria-label="Más">+</button>
+        </div>
+        <p class="nota-mayor" id="nota" aria-live="polite"></p>
+      </div>
+
+      <a class="btn btn--whatsapp btn--bloque" id="pedir" target="_blank" rel="noopener">${ICONOS.whatsapp} Pedir por WhatsApp</a>
+
+      <ul class="garantias">
+        <li>${ICONOS.fabrica} Directo de fábrica, sin intermediarios</li>
+        <li>${ICONOS.escudo} Revisamos cada prenda antes de despacharla</li>
+        <li>${ICONOS.camion} Despachos a todo el país — te cotizamos el envío</li>
+      </ul>
+    </div>`;
+
+  const input = document.getElementById("cantidad");
+  const nota = document.getElementById("nota");
+  const pedir = document.getElementById("pedir");
+  const radios = cont.querySelectorAll('input[name="tipo"]');
+
+  function actualizar() {
+    let n = Math.max(1, parseInt(input.value, 10) || 1);
+    input.value = n;
+    const tipo = cont.querySelector('input[name="tipo"]:checked').value;
+    if (tipo === "mayor" && n < NEGOCIO.minimoMayor) {
+      nota.textContent = `Te faltan ${NEGOCIO.minimoMayor - n} unidades para el precio por mayor.`;
+    } else if (tipo === "mayor") {
+      const nivel = [...NIVELES_MAYOR].reverse().find((l) => n >= l.desde);
+      nota.textContent = nivel ? `✓ Aplicas a precio nivel ${nivel.nombre}.` : "";
+    } else {
+      nota.textContent = n >= NEGOCIO.minimoMayor ? `Con ${n} unidades ya puedes acceder al precio por mayor.` : "";
     }
+    const msg = tipo === "mayor"
+      ? `Hola K'FE 👋 Quiero comprar POR MAYOR:\n• ${p.nombre} (ref. ${p.id})\n• Cantidad: ${n} unidades\n¿Me comparten el precio por mayor, tallas y colores disponibles?`
+      : `Hola K'FE 👋 Quiero comprar:\n• ${p.nombre} (ref. ${p.id})\n• Cantidad: ${n}\n• Precio detal: ${formatoCOP(p.precio)}\n¿Qué tallas tienen disponibles?`;
+    pedir.href = enlaceWhatsApp(msg);
+  }
 
-    const article = articles.find(article => article.id === parseInt(articleId));
+  cont.querySelectorAll("[data-paso]").forEach((b) =>
+    b.addEventListener("click", () => { input.value = (parseInt(input.value, 10) || 1) + Number(b.dataset.paso); actualizar(); }));
+  input.addEventListener("input", actualizar);
+  radios.forEach((r) => r.addEventListener("change", () => {
+    if (r.value === "detal" && r.checked && Number(input.value) === NEGOCIO.minimoMayor) input.value = 1;
+    if (r.value === "mayor" && r.checked && Number(input.value) < NEGOCIO.minimoMayor) input.value = NEGOCIO.minimoMayor;
+    actualizar();
+  }));
+  actualizar();
 
-    if (!article) {
-        console.error('El artículo no fue encontrado');
-        return;
-    }
-
-    const articleDetails = document.getElementById('articleDetails');
-
-    const img = document.createElement('img');
-    img.src = article.image;
-    articleDetails.appendChild(img);
-
-    const articleNameElement = document.createElement('h2');
-    articleNameElement.textContent = article.name;
-    articleDetails.appendChild(articleNameElement);
-
-    const price = document.createElement('p');
-    price.textContent = `$${article.price.toLocaleString()}`;
-    articleDetails.appendChild(price);
-}
-
-window.addEventListener('load', showArticleDetails);
-
-function openWhatsApp() {
-    // Aquí colocamos la lógica para abrir un chat de WhatsApp
-    // Debes cambiar el número de teléfono con el prefijo internacional correspondiente (por ejemplo, +57 para Colombia)
-    window.open('https://api.whatsapp.com/send?phone=573164071839', '_blank'); // Cambia el número de teléfono según sea necesario
-}
- 
+  // Relacionados
+  const rel = PRODUCTOS.filter((x) => x.categoria === p.categoria && x.id !== p.id).slice(0, 4);
+  const relCont = document.getElementById("relacionados");
+  if (rel.length && relCont) {
+    relCont.innerHTML = rel.map(crearTarjeta).join("");
+    activarRevelado();
+  } else if (relCont) {
+    relCont.closest("section").remove();
+  }
+})();

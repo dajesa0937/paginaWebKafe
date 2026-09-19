@@ -1,44 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles del Artículo</title>
-
-    <!-- Enlaza tus archivos CSS -->
-    <link rel="stylesheet" href="css/article.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/footer.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto | K'FE Confecciones</title>
+  <meta name="description" content="Detalle de producto, precio al detal y precio por mayor.">
+  <meta name="theme-color" content="#2B1B14">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
-<body>
-
-<header>
-    <!-- Tu encabezado aquí -->
-    <nav class="navbar"></nav>
-</header>
-<div class="article-details-container" id="articleDetails">
-    <!-- Los detalles del artículo se añadirán aquí dinámicamente con JavaScript -->
-</div>
-
-
-<!-- Botón de pagos -->
-<!-- index.html -->
-<button id="payButton" onclick="openWhatsApp()">
-    <img src="img/logo_whatsapp.jpg" alt="WhatsApp">
-    Chatea Con Un Asesor!
-</button>
-
-<footer></footer>
-
-<!-- Enlaza tu archivo JavaScript para los detalles del artículo -->
-<script src="js/article.js"></script>
-<script src="js/nav.js"></script>
-<script src="js/footer.js"></script>
-
-
-
+<body data-pagina="producto">
+  <div data-cabecera></div>
+  <main>
+    <section class="seccion" style="padding-top:32px">
+      <div class="contenedor">
+        <p class="migas" id="migas" style="color:var(--texto-suave);margin-bottom:22px"></p>
+        <div class="detalle" id="detalle"></div>
+      </div>
+    </section>
+    <section class="seccion seccion--blanca">
+      <div class="contenedor">
+        <div class="cabecera-seccion"><div><span class="eyebrow">Completa tu pedido</span><h2 class="titulo">También te puede interesar</h2></div></div>
+        <div class="grid-productos" id="relacionados"></div>
+      </div>
+    </section>
+  </main>
+  <div data-pie></div>
+  <script src="js/products.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/article.js"></script>
 </body>
 </html>
