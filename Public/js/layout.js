@@ -43,7 +43,7 @@ function crearCabecera() {
 
   destino.outerHTML = `
     <div class="anuncio">
-      <strong>Precio especial al por mayor</strong> desde ${NEGOCIO.minimoMayor} und.<span class="solo-escritorio"> · Envíos a toda Colombia · Pagos por transferencia o Nequi</span> ·
+      <strong>Somos mayoristas</strong> · Precio especial desde ${NEGOCIO.minimoMayor} und.<span class="solo-escritorio"> · Despachamos a todo el país · Pagos por transferencia o Nequi</span> ·
       <a href="${enlaceWhatsApp("Hola K'FE, quiero consultar disponibilidad y precios por mayor.")}" target="_blank" rel="noopener">Consulta disponibilidad</a>
     </div>
     <header class="cabecera">
@@ -190,8 +190,9 @@ function notaCompraHTML() {
         <div><strong>Nota importante antes de comprar</strong><span>Las prendas pueden agotarse rápidamente.</span></div>
       </div>
       <ul class="nota-compra__lista">
+        <li>${ICONOS.etiqueta}<span><b>Prendas sujetas a disponibilidad</b> de modelo, talla y línea de estampados. Las fotos son de referencia.</span></li>
         <li>${ICONOS.chat}<span><b>Consulta siempre la disponibilidad</b> por WhatsApp antes de pagar.</span></li>
-        <li>${ICONOS.camion}<span><b>Envíos a toda Colombia.</b> El valor del envío lo paga el cliente.</span></li>
+        <li>${ICONOS.camion}<span><b>Somos mayoristas y despachamos a todo el país.</b> El valor del envío lo paga el cliente.</span></li>
         <li>${ICONOS.pago}<span><b>Pagos por transferencia o Nequi.</b> Te enviamos los datos al confirmar tu pedido.</span></li>
       </ul>
       <a class="btn btn--whatsapp" href="${enlaceWhatsApp("Hola K'FE, quiero consultar la disponibilidad de unas prendas.")}" target="_blank" rel="noopener">${ICONOS.whatsapp} Consultar disponibilidad</a>

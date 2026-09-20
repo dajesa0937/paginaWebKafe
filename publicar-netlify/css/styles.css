@@ -403,7 +403,7 @@ input, select, textarea { font: inherit; color: inherit; }
 
 /* ---------- WhatsApp flotante ---------- */
 .wa-flotante {
-  position: fixed; right: 18px; bottom: 18px; z-index: 70;
+  position: fixed; right: 18px; bottom: 76px; z-index: 70;
   display: flex; align-items: center; gap: 10px;
   background: var(--whatsapp); color: #fff; border-radius: 999px; padding: 12px 18px 12px 14px;
   box-shadow: 0 12px 30px rgba(31,175,84,.4); font-weight: 700; font-size: .92rem;
