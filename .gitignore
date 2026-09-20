@@ -1,0 +1,12 @@
+# Archivos de trabajo que NO deben subirse a GitHub ni a internet
+fotos-originales/
+_archivo_sitio_anterior/
+publicar-netlify/
+*.zip
+catalogo-kfe.pdf
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+.vscode/
+node_modules/

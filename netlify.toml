@@ -1,0 +1,11 @@
+# Configuración de Netlify para Inversiones K'FE Designs
+# Netlify publica SOLO la carpeta Public (sin compilar nada).
+[build]
+  publish = "Public"
+  command = ""
+
+# Caché para imágenes, estilos y scripts
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
