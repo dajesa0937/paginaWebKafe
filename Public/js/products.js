@@ -8,7 +8,7 @@ const NEGOCIO = {
   nombre: "K'FE Confecciones",
   whatsapp: "573164071839",               // Número con indicativo, sin + ni espacios
   telefonoVisible: "316 407 1839",
-  email: "ventas@kfetiendavirtual.com",
+  email: "karinaferia1210@gmail.com",
   ciudad: "Medellín, Colombia",
   instagram: "https://www.instagram.com/kfe.desings/",
   facebook: "https://www.facebook.com/kfe.desings/",
