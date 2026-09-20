@@ -97,7 +97,7 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
 .marca { display: flex; align-items: center; gap: 12px; }
-.marca img { width: 50px; height: 50px; }
+.marca img { width: 62px; height: 50px; object-fit: contain; }
 .marca__texto { display: grid; line-height: 1.05; }
 .marca__nombre { font-family: var(--f-titulo); font-weight: 700; font-size: 1.7rem; letter-spacing: .02em; }
 .marca__lema { font-size: .66rem; letter-spacing: .22em; text-transform: uppercase; color: var(--texto-suave); font-weight: 600; }
@@ -147,7 +147,7 @@ input, select, textarea { font: inherit; color: inherit; }
   .velo.visible { opacity: 1; pointer-events: auto; }
 }
 @media (min-width: 981px) { .menu-cerrar, .velo { display: none; } }
-@media (max-width: 420px) { .marca__lema { display: none; } .marca img { width: 42px; height: 42px; } }
+@media (max-width: 420px) { .marca__lema { display: none; } .marca img { width: 52px; height: 42px; } }
 
 /* ---------- Hero ---------- */
 .hero { padding: clamp(40px, 6vw, 80px) 0 clamp(56px, 7vw, 90px); overflow: hidden; }
@@ -437,3 +437,72 @@ html, body { overflow-x: clip; }
   .menu { visibility: hidden; transition: transform .3s ease, visibility 0s linear .3s; }
   .menu.abierto { visibility: visible; transition: transform .3s ease; }
 }
+
+/* Fotos con modelo: mantener el rostro visible al recortar */
+img[src*="pijama-pantalon"], img[src*="pijama-short-"], img[src*="jean-wide"] { object-position: center 15%; }
+img[src*="camiseta-dama-"] { object-position: center 42%; }
+
+/* ---------- Nota importante de compra ---------- */
+.solo-escritorio { display: inline; }
+@media (max-width: 760px) { .solo-escritorio { display: none; } }
+.nota-compra {
+  display: grid; grid-template-columns: 1fr 1.6fr auto; gap: 22px 32px; align-items: center;
+  background: #FBF3E8; border: 1.5px solid var(--caramelo); border-radius: var(--radio-lg);
+  padding: 24px 28px; margin: 36px 0 0;
+}
+.nota-compra__titulo { display: flex; gap: 14px; align-items: center; }
+.nota-compra__titulo strong { display: block; font-family: var(--f-titulo); font-size: 1.2rem; line-height: 1.2; }
+.nota-compra__titulo div span { color: var(--terracota); font-weight: 700; font-size: .92rem; }
+.nota-compra__icono { width: 48px; height: 48px; border-radius: 14px; background: var(--terracota); color: #fff; display: grid; place-items: center; flex: none; }
+.nota-compra__icono svg { width: 26px; height: 26px; }
+.nota-compra__lista { list-style: none; display: grid; gap: 8px; font-size: .92rem; color: var(--cafe); }
+.nota-compra__lista li { display: flex; gap: 10px; align-items: flex-start; }
+.nota-compra__lista svg { width: 20px; height: 20px; flex: none; color: var(--terracota); margin-top: 1px; }
+.nota-compra__lista b { color: var(--espresso); }
+@media (max-width: 1000px) { .nota-compra { grid-template-columns: 1fr; } .nota-compra .btn { justify-self: start; } }
+.detalle .nota-compra { grid-template-columns: 1fr; margin-top: 22px; padding: 20px; gap: 14px; }
+.detalle .nota-compra .btn { display: none; }
+
+/* Menú con más enlaces */
+@media (min-width: 981px) and (max-width: 1180px) {
+  .menu a { padding: 10px 9px; font-size: .9rem; }
+  .nav .btn--whatsapp { padding: 11px 14px; }
+  .marca__lema { display: none; }
+}
+
+/* ---------- Galería en detalle ---------- */
+.miniaturas { display: flex; gap: 10px; padding: 10px; background: var(--blanco); }
+.miniaturas button { width: 72px; height: 88px; border-radius: 10px; overflow: hidden; border: 2px solid transparent; padding: 0; }
+.miniaturas button.activa { border-color: var(--espresso); }
+.miniaturas img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Página catálogo ---------- */
+.chips--categorias { margin-bottom: 14px; }
+.chips--categorias .chip { font-size: .95rem; padding: 10px 18px; }
+.solo-impresion { display: none; }
+
+/* ---------- Catálogo imprimible (Guardar como PDF) ---------- */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { background: #fff; }
+  .anuncio, .cabecera, .velo, .pie, .wa-flotante, .pagina-hero, .barra-filtros, .chips, .contador,
+  .producto__acciones, .producto__badges, .aviso-mayor, .nota-compra .btn, .no-imprimir { display: none !important; }
+  .solo-impresion { display: block !important; }
+  .seccion { padding: 0 !important; }
+  .contenedor { width: 100%; }
+  .grid-productos { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; }
+  .producto { box-shadow: none !important; border: 1px solid #ddd; break-inside: avoid; transform: none !important; }
+  .producto__media { aspect-ratio: 1 / 1.05; }
+  .producto__precio strong { font-size: .95rem; }
+  .producto__cat { font-size: .6rem; }
+  .producto__cuerpo { padding: 8px 10px; gap: 2px; }
+  .producto__nombre { font-size: .85rem; }
+  .producto__mayor { font-size: .72rem; }
+  .revelar { opacity: 1 !important; transform: none !important; }
+  .nota-compra { break-inside: avoid; margin: 0 0 12px; grid-template-columns: 1fr 1.6fr; padding: 12px 16px; }
+  .portada-pdf { display: flex !important; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--espresso); padding-bottom: 10px; margin-bottom: 12px; }
+  .portada-pdf img { width: 70px; }
+  .portada-pdf h1 { font-family: var(--f-titulo); font-size: 1.6rem; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+.nota-compra + .cta-final { margin-top: 32px; }

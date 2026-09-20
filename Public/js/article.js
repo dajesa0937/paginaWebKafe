@@ -18,29 +18,41 @@
   }
 
   const cat = CATEGORIAS[p.categoria];
+  const fotos = [p.imagen, ...(p.imagenes || [])];
   document.title = `${p.nombre} | K'FE Confecciones`;
   document.getElementById("migas").innerHTML =
     `<a href="index.html">Inicio</a> / <a href="${cat.url}">${cat.nombre}</a> / ${p.nombre}`;
 
   cont.innerHTML = `
-    <div class="detalle__foto"><img src="${p.imagen}" alt="${p.nombre}" width="600" height="750"></div>
+    <div class="detalle__foto">
+      <img id="foto-principal" src="${p.imagen}" alt="${p.nombre}" width="600" height="750">
+      ${fotos.length > 1 ? `<div class="miniaturas">${fotos.map((f, i) => `<button type="button" class="${i === 0 ? "activa" : ""}" data-foto="${f}" aria-label="Ver foto ${i + 1}"><img src="${f}" alt=""></button>`).join("")}</div>` : ""}
+    </div>
     <div>
       <span class="eyebrow">${cat.nombre} · ${p.tipo}</span>
       <h1>${p.nombre}</h1>
-      <p class="detalle__desc">Confección propia en ${p.tela.toLowerCase()}, con acabados cuidados y tallaje pensado para el cuerpo colombiano. Disponible por unidad o por mayor con surtido de tallas y diseños.</p>
+      <p class="detalle__desc">${p.reventa
+        ? "Jean de marca para hombre. Tenemos unidades y tallas limitadas: consulta precio, tallas y disponibilidad por WhatsApp antes de comprar."
+        : `Confección propia en ${p.tela.toLowerCase()}, con acabados cuidados y tallaje pensado para el cuerpo colombiano. Disponible por unidad o por mayor con surtido de tallas y diseños.`}</p>
 
+      ${p.reventa ? `
+      <div class="precios"><div class="precio-caja precio-caja--mayor" style="grid-column:1/-1">
+        <small>Precio y disponibilidad</small>
+        <strong>Consultar</strong>
+        <span>te lo confirmamos por WhatsApp según talla y referencia</span>
+      </div></div>` : `
       <div class="precios">
         <div class="precio-caja">
           <small>Precio al detal</small>
-          <strong>${formatoCOP(p.precio)}</strong>
-          <span>por unidad</span>
+          <strong>${p.precio == null ? "Consultar" : formatoCOP(p.precio)}</strong>
+          <span>${p.precio == null ? "te lo confirmamos por WhatsApp" : "por unidad"}</span>
         </div>
         <div class="precio-caja precio-caja--mayor">
           <small>Precio por mayor</small>
-          <strong>Precio de fábrica</strong>
-          <span>desde ${NEGOCIO.minimoMayor} unidades surtidas</span>
+          <strong>Consultar</strong>
+          <span>precio de fábrica desde ${NEGOCIO.minimoMayor} unidades surtidas</span>
         </div>
-      </div>
+      </div>`}
 
       <div class="selector">
         <label>¿Cómo quieres comprar?</label>
@@ -62,14 +74,26 @@
         <p class="nota-mayor" id="nota" aria-live="polite"></p>
       </div>
 
-      <a class="btn btn--whatsapp btn--bloque" id="pedir" target="_blank" rel="noopener">${ICONOS.whatsapp} Pedir por WhatsApp</a>
+      <a class="btn btn--whatsapp btn--bloque" id="pedir" target="_blank" rel="noopener">${ICONOS.whatsapp} Consultar disponibilidad y pedir</a>
+
+      ${notaCompraHTML()}
 
       <ul class="garantias">
-        <li>${ICONOS.fabrica} Directo de fábrica, sin intermediarios</li>
+        ${p.reventa ? "" : `<li>${ICONOS.fabrica} Directo de fábrica, sin intermediarios</li>`}
         <li>${ICONOS.escudo} Revisamos cada prenda antes de despacharla</li>
-        <li>${ICONOS.camion} Despachos a todo el país — te cotizamos el envío</li>
       </ul>
     </div>`;
+
+  cont.querySelectorAll("[data-foto]").forEach((b) => b.addEventListener("click", () => {
+    document.getElementById("foto-principal").src = b.dataset.foto;
+    cont.querySelectorAll("[data-foto]").forEach((x) => x.classList.toggle("activa", x === b));
+  }));
+
+  if (p.reventa) {
+    const sel = cont.querySelector(".tipo-compra");
+    if (sel) sel.closest(".selector").remove();
+    document.getElementById("cantidad").value = 1;
+  }
 
   const input = document.getElementById("cantidad");
   const nota = document.getElementById("nota");
@@ -79,8 +103,11 @@
   function actualizar() {
     let n = Math.max(1, parseInt(input.value, 10) || 1);
     input.value = n;
-    const tipo = cont.querySelector('input[name="tipo"]:checked').value;
-    if (tipo === "mayor" && n < NEGOCIO.minimoMayor) {
+    const marcado = cont.querySelector('input[name="tipo"]:checked');
+    const tipo = marcado ? marcado.value : "detal";
+    if (p.reventa) {
+      nota.textContent = "";
+    } else if (tipo === "mayor" && n < NEGOCIO.minimoMayor) {
       nota.textContent = `Te faltan ${NEGOCIO.minimoMayor - n} unidades para el precio por mayor.`;
     } else if (tipo === "mayor") {
       const nivel = [...NIVELES_MAYOR].reverse().find((l) => n >= l.desde);
@@ -88,9 +115,11 @@
     } else {
       nota.textContent = n >= NEGOCIO.minimoMayor ? `Con ${n} unidades ya puedes acceder al precio por mayor.` : "";
     }
-    const msg = tipo === "mayor"
-      ? `Hola K'FE 👋 Quiero comprar POR MAYOR:\n• ${p.nombre} (ref. ${p.id})\n• Cantidad: ${n} unidades\n¿Me comparten el precio por mayor, tallas y colores disponibles?`
-      : `Hola K'FE 👋 Quiero comprar:\n• ${p.nombre} (ref. ${p.id})\n• Cantidad: ${n}\n• Precio detal: ${formatoCOP(p.precio)}\n¿Qué tallas tienen disponibles?`;
+    const msg = p.reventa
+      ? `Hola K'FE 👋 Me interesa:\n• ${p.nombre} (ref. ${p.id})\n• Cantidad: ${n}\n¿Me comparten precio, tallas y disponibilidad?`
+      : tipo === "mayor"
+      ? `Hola K'FE 👋 Quiero comprar POR MAYOR:\n• ${p.nombre} (ref. ${p.id})\n• Cantidad: ${n} unidades\n¿Está disponible? ¿Me comparten el precio por mayor, tallas y colores?`
+      : `Hola K'FE 👋 Quiero comprar:\n• ${p.nombre} (ref. ${p.id})\n• Cantidad: ${n}${p.precio == null ? "" : `\n• Precio detal: ${formatoCOP(p.precio)}`}\n¿Está disponible? ¿Qué tallas tienen?`;
     pedir.href = enlaceWhatsApp(msg);
   }
 

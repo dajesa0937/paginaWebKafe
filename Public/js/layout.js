@@ -18,13 +18,15 @@ const ICONOS = {
   check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="1.8"/><path d="m7.5 12 3 3 6-6"/></svg>',
   instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
   facebook: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.3C16.7 2.2 15.6 2 14.4 2 11.8 2 10 3.6 10 6.5v2H7.5V12H10v10h4V12h2.8l.4-3.5z"/></svg>',
+  reloj: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  pago: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></svg>',
   jean: '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M16 6h32l4 52H37l-5-30-5 30H12z"/><path d="M16 12h32M24 12v6a5 5 0 0 1-5 5M40 12v6a5 5 0 0 0 5 5M32 12v10"/></svg>'
 };
 
 function marcaHTML() {
   return `
     <a href="index.html" class="marca" aria-label="K'FE Confecciones - Inicio">
-      <img src="img/logo-kfe.svg" alt="" width="50" height="50">
+      <img src="img/logo-kfe-original.png" alt="" width="62" height="50">
       <span class="marca__texto">
         <span class="marca__nombre">K'FE</span>
         <span class="marca__lema">Confecciones · Fábrica</span>
@@ -41,8 +43,8 @@ function crearCabecera() {
 
   destino.outerHTML = `
     <div class="anuncio">
-      <strong>Precio especial al por mayor</strong> desde ${NEGOCIO.minimoMayor} unidades · Somos fabricantes ·
-      <a href="${enlaceWhatsApp("Hola K'FE, quiero conocer los precios por mayor.")}" target="_blank" rel="noopener">Cotiza por WhatsApp</a>
+      <strong>Precio especial al por mayor</strong> desde ${NEGOCIO.minimoMayor} und.<span class="solo-escritorio"> · Envíos a toda Colombia · Pagos por transferencia o Nequi</span> ·
+      <a href="${enlaceWhatsApp("Hola K'FE, quiero consultar disponibilidad y precios por mayor.")}" target="_blank" rel="noopener">Consulta disponibilidad</a>
     </div>
     <header class="cabecera">
       <nav class="contenedor nav" aria-label="Principal">
@@ -50,6 +52,7 @@ function crearCabecera() {
         <ul class="menu" id="menu">
           <li><button class="icono-btn menu-cerrar" type="button" aria-label="Cerrar menú">${ICONOS.cerrar}</button></li>
           ${link("index.html", "Inicio", "inicio")}
+          ${link("catalogo.html", "Catálogo", "catalogo")}
           ${link("mujer.html", "Mujer", "mujer")}
           ${link("hombre.html", "Hombre", "hombre")}
           ${link("pijamas.html", "Pijamas", "pijamas")}
@@ -116,7 +119,8 @@ function crearPie() {
               <li><a href="mujer.html">Mujer</a></li>
               <li><a href="hombre.html">Hombre</a></li>
               <li><a href="pijamas.html">Pijamas</a></li>
-              <li><a href="jeans.html">Jeans hombre</a></li>
+              <li><a href="jeans.html">Jeans</a></li>
+              <li><a href="catalogo.html">Catálogo completo</a></li>
             </ul>
           </div>
           <div>
@@ -133,6 +137,8 @@ function crearPie() {
               <li><a href="${enlaceWhatsApp("Hola K'FE")}" target="_blank" rel="noopener">WhatsApp: ${NEGOCIO.telefonoVisible}</a></li>
               <li><a href="mailto:${NEGOCIO.email}">${NEGOCIO.email}</a></li>
               <li>${NEGOCIO.ciudad}</li>
+              <li>Pagos: transferencia o Nequi</li>
+              <li>Envíos a toda Colombia</li>
             </ul>
           </div>
         </div>
@@ -150,27 +156,49 @@ function crearPie() {
 /* Tarjeta de producto reutilizable */
 function crearTarjeta(p) {
   const cat = CATEGORIAS[p.categoria];
-  const msg = `Hola K'FE, me interesa: ${p.nombre} (ref. ${p.id}). ¿Me comparten precio por mayor y tallas disponibles?`;
+  const msg = p.reventa
+    ? `Hola K'FE, me interesa: ${p.nombre} (ref. ${p.id}). ¿Me comparten precio, disponibilidad y tallas?`
+    : `Hola K'FE, me interesa: ${p.nombre} (ref. ${p.id}). ¿Está disponible? ¿Me comparten precio por mayor y tallas?`;
   return `
     <article class="producto revelar">
       <a href="article.html?id=${encodeURIComponent(p.id)}" class="producto__media">
         <img src="${p.imagen}" alt="${p.nombre}" loading="lazy" width="600" height="750">
         <span class="producto__badges">
-          ${p.destacado ? '<span class="producto__badge">Más pedido</span>' : ""}
-          <span class="producto__badge producto__badge--mayor">Por mayor</span>
+          ${DESTACADOS_INICIO.includes(p.id) ? '<span class="producto__badge">Más pedido</span>' : ""}
+          <span class="producto__badge producto__badge--mayor">${p.reventa ? "De marca" : "Por mayor"}</span>
         </span>
       </a>
       <div class="producto__cuerpo">
         <span class="producto__cat">${cat ? cat.nombre : ""} · ${p.tela || p.tipo}</span>
         <h3 class="producto__nombre"><a href="article.html?id=${encodeURIComponent(p.id)}">${p.nombre}</a></h3>
-        <div class="producto__precio"><strong>${formatoCOP(p.precio)}</strong><small>al detal</small></div>
-        <span class="producto__mayor">${ICONOS.etiqueta} Precio mayorista ${NEGOCIO.minimoMayor}+ und.</span>
+        <div class="producto__precio">${p.precio == null ? "<strong>Consultar precio</strong>" : `<strong>${formatoCOP(p.precio)}</strong><small>al detal</small>`}</div>
+        <span class="producto__mayor">${ICONOS.etiqueta} ${p.reventa ? "Consulta precio y disponibilidad" : "Por mayor: precio de fábrica, consultar"}</span>
         <div class="producto__acciones">
           <a class="btn btn--ver" href="article.html?id=${encodeURIComponent(p.id)}">Ver detalles</a>
-          <a class="btn btn--whatsapp" href="${enlaceWhatsApp(msg)}" target="_blank" rel="noopener" aria-label="Pedir ${p.nombre} por WhatsApp">${ICONOS.whatsapp}</a>
+          <a class="btn btn--whatsapp" href="${enlaceWhatsApp(msg)}" target="_blank" rel="noopener" aria-label="Consultar disponibilidad de ${p.nombre} por WhatsApp" title="Consultar disponibilidad">${ICONOS.whatsapp}</a>
         </div>
       </div>
     </article>`;
+}
+
+/* Nota importante de compra: <div data-nota-compra></div> */
+function notaCompraHTML() {
+  return `
+    <aside class="nota-compra" aria-label="Nota importante antes de comprar">
+      <div class="nota-compra__titulo">
+        <span class="nota-compra__icono">${ICONOS.reloj}</span>
+        <div><strong>Nota importante antes de comprar</strong><span>Las prendas pueden agotarse rápidamente.</span></div>
+      </div>
+      <ul class="nota-compra__lista">
+        <li>${ICONOS.chat}<span><b>Consulta siempre la disponibilidad</b> por WhatsApp antes de pagar.</span></li>
+        <li>${ICONOS.camion}<span><b>Envíos a toda Colombia.</b> El valor del envío lo paga el cliente.</span></li>
+        <li>${ICONOS.pago}<span><b>Pagos por transferencia o Nequi.</b> Te enviamos los datos al confirmar tu pedido.</span></li>
+      </ul>
+      <a class="btn btn--whatsapp" href="${enlaceWhatsApp("Hola K'FE, quiero consultar la disponibilidad de unas prendas.")}" target="_blank" rel="noopener">${ICONOS.whatsapp} Consultar disponibilidad</a>
+    </aside>`;
+}
+function pintarNotas() {
+  document.querySelectorAll("[data-nota-compra]").forEach((el) => { el.outerHTML = notaCompraHTML(); });
 }
 
 /* Aparición suave al hacer scroll */
@@ -197,5 +225,6 @@ function activarEnlacesWhatsApp() {
 
 crearCabecera();
 crearPie();
+pintarNotas();
 activarEnlacesWhatsApp();
 document.addEventListener("DOMContentLoaded", activarRevelado);

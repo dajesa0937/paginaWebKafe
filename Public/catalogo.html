@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo completo | K'FE Confecciones</title>
+  <meta name="description" content="Catálogo completo de K'FE: camisetas, blusas, polos, pijamas y jeans. Precio especial al por mayor, envíos a toda Colombia.">
+  <meta name="theme-color" content="#2B1B14">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-pagina="catalogo">
+  <div data-cabecera></div>
+
+  <main>
+    <section class="pagina-hero">
+      <img src="img/opt/pijama-short-rosa-liso.jpg" alt="" style="object-position:center 20%">
+      <div class="contenedor">
+        <p class="migas"><a href="index.html">Inicio</a> / Catálogo</p>
+        <span class="eyebrow">Colección actual</span>
+        <h1>Catálogo completo</h1>
+        <p>Todas nuestras referencias en un solo lugar. Elige, consulta disponibilidad por WhatsApp y arma tu pedido al detal o por mayor.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+          <button class="btn btn--caramelo" type="button" id="descargar-pdf" data-icono="etiqueta">Descargar catálogo en PDF</button>
+          <a class="btn btn--whatsapp" data-wa="Hola K'FE, vi el catálogo y quiero consultar disponibilidad." data-icono="whatsapp">Consultar disponibilidad</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" style="padding-top:36px">
+      <div class="contenedor">
+        <div class="portada-pdf solo-impresion">
+          <div style="display:flex;gap:12px;align-items:center"><img src="img/logo-kfe-original.png" alt=""><div><h1>K'FE Confecciones</h1><p>Catálogo · Fabricantes en Medellín</p></div></div>
+          <div style="text-align:right;font-size:.9rem">WhatsApp 316 407 1839<br>Precio especial por mayor desde 6 und.</div>
+        </div>
+        <div data-nota-compra></div>
+        <div class="chips chips--categorias" id="chips-categorias" style="margin-top:28px"></div>
+        <div class="barra-filtros">
+          <div class="chips" id="chips"></div>
+          <label class="orden">Ordenar
+            <select id="orden">
+              <option value="destacados">Más pedidos</option>
+              <option value="menor">Menor precio</option>
+              <option value="mayor">Mayor precio</option>
+            </select>
+          </label>
+        </div>
+        <p class="contador" id="contador"></p>
+        <div class="grid-productos" id="grid-productos"></div>
+
+        <div class="aviso-mayor">
+          <p>¿Compras para revender? Obtén precio de fábrica desde 6 unidades surtidas.<span>Combina referencias, tallas y colores en un mismo pedido.</span></p>
+          <a class="btn btn--primario" href="mayoristas.html">Ver precios por mayor</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-pie></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/catalog.js"></script>
+</body>
+</html>
