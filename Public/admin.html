@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de administración | Inversiones K'FE Designs</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#2B1B14">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="admin">
+
+  <header class="admin__barra">
+    <a href="index.html" class="marca">
+      <img src="img/logo-kfe-original.png" alt="" width="50" height="40">
+      <span class="marca__texto"><span class="marca__nombre">K'FE</span><span class="marca__lema">Administración</span></span>
+    </a>
+    <div class="admin__barra-acciones">
+      <span id="usuario-actual" class="admin__usuario"></span>
+      <a class="btn btn--ver" href="entrega-inmediata.html" target="_blank" rel="noopener">Ver la página</a>
+      <button class="btn btn--ver" type="button" id="btn-salir" hidden>Salir</button>
+    </div>
+  </header>
+
+  <main class="contenedor admin__cuerpo">
+    <div id="aviso" class="aviso" role="status" aria-live="polite"></div>
+
+    <!-- Falta configurar Supabase -->
+    <section id="pantalla-config" class="tarjeta-admin" hidden>
+      <h1 class="titulo">Falta un paso de configuración</h1>
+      <p class="subtitulo">El panel ya está listo, pero todavía no tiene la llave de conexión con la base de datos.</p>
+      <ol class="pasos-config">
+        <li>Entra a <b>supabase.com</b> → tu proyecto → <b>Project Settings → API</b>.</li>
+        <li>Copia la llave <b>anon public</b>.</li>
+        <li>Pégala en el archivo <code>js/supabase-config.js</code>, en <code>anonKey</code>.</li>
+        <li>En <b>SQL Editor</b>, ejecuta el archivo <code>supabase-setup.sql</code>.</li>
+        <li>En <b>Authentication → Users</b>, crea el usuario administrador con su correo y contraseña.</li>
+      </ol>
+    </section>
+
+    <!-- Ingreso -->
+    <section id="pantalla-login" class="tarjeta-admin tarjeta-admin--login" hidden>
+      <h1 class="titulo">Panel de administración</h1>
+      <p class="subtitulo">Ingresa con tu correo y contraseña para publicar productos.</p>
+      <form id="form-login" class="form-admin">
+        <div class="campo">
+          <label for="correo">Correo</label>
+          <input id="correo" type="email" autocomplete="username" inputmode="email" required>
+        </div>
+        <div class="campo">
+          <label for="clave">Contraseña</label>
+          <input id="clave" type="password" autocomplete="current-password" required>
+        </div>
+        <p id="error-login" class="error-login"></p>
+        <button class="btn btn--primario btn--bloque" type="submit" id="btn-entrar">Entrar</button>
+      </form>
+      <p class="form-nota">¿Olvidaste la contraseña? Se cambia desde Supabase → Authentication → Users.</p>
+    </section>
+
+    <!-- Panel -->
+    <section id="pantalla-panel" hidden>
+      <div class="cabecera-seccion" style="margin-bottom:22px">
+        <div>
+          <span class="eyebrow">Entrega inmediata</span>
+          <h1 class="titulo" id="titulo-form">Publicar producto nuevo</h1>
+        </div>
+        <p class="consejo-caja">💡 <span id="consejo"></span></p>
+      </div>
+
+      <form id="form-producto" class="tarjeta-admin form-admin">
+        <input type="hidden" id="foto-actual">
+
+        <div class="campo campo--full">
+          <label for="foto">Foto del producto</label>
+          <input id="foto" type="file" accept="image/*" capture="environment">
+          <small class="ayuda">Puedes tomarla con la cámara del celular. La ajustamos sola: no se corta ni se deforma.</small>
+          <div id="previsualizacion" class="previsualizacion"></div>
+        </div>
+
+        <div class="form-grid">
+          <div class="campo campo--full">
+            <label for="nombre">Nombre del artículo</label>
+            <input id="nombre" type="text" maxlength="60" placeholder="Ej: Pijama short algodón" required>
+          </div>
+          <div class="campo campo--full">
+            <label for="descripcion">Descripción corta</label>
+            <input id="descripcion" type="text" maxlength="110" placeholder="Ej: Fresca, suave, tallas S a XL">
+            <small class="ayuda">Una línea con el beneficio principal. Máximo 110 caracteres.</small>
+          </div>
+          <div class="campo">
+            <label for="precio">Precio (COP)</label>
+            <input id="precio" type="number" min="0" step="500" inputmode="numeric" placeholder="25000">
+            <small class="ayuda">Sin puntos ni comas. Déjalo vacío para "Consultar precio".</small>
+          </div>
+          <div class="campo">
+            <label for="cantidad">Unidades disponibles</label>
+            <input id="cantidad" type="number" min="0" inputmode="numeric" placeholder="8">
+            <small class="ayuda">Si quedan 5 o menos, la página muestra "¡Quedan X!".</small>
+          </div>
+          <div class="campo">
+            <label for="categoria">Línea</label>
+            <select id="categoria">
+              <option>General</option>
+              <option>Mujer</option>
+              <option>Hombre</option>
+              <option>Pijamas</option>
+              <option>Jeans</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="activo">Visibilidad</label>
+            <label class="switch"><input type="checkbox" id="activo" checked> <span>Mostrar en la página</span></label>
+          </div>
+        </div>
+
+        <div class="form-botones">
+          <button class="btn btn--primario" type="submit" id="btn-guardar">Publicar producto</button>
+          <button class="btn btn--ver" type="button" id="btn-cancelar" hidden>Cancelar edición</button>
+        </div>
+      </form>
+
+      <div class="cabecera-seccion" style="margin:40px 0 18px">
+        <div><h2 class="titulo">Productos publicados</h2></div>
+        <span class="contador" id="conteo"></span>
+      </div>
+      <div id="lista" class="lista-admin"></div>
+    </section>
+  </main>
+
+  <script src="js/products.js"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/admin.js"></script>
+  <script>
+    document.getElementById("btn-salir").hidden = false;
+  </script>
+</body>
+</html>

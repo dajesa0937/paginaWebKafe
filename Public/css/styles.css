@@ -513,3 +513,91 @@ img[src*="camiseta-dama-"] { object-position: center 42%; }
   .cabecera { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--crema); z-index: 60; }
   .menu { height: 100vh; height: 100dvh; overflow-y: auto; }
 }
+
+/* =========================================================
+   ENTREGA INMEDIATA (sección pública)
+   ========================================================= */
+.chip-inmediata {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #E7F7EC; color: #0E7A3C; border: 1.5px solid #9BD9B2;
+  font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 999px;
+}
+.pagina-hero .chip-inmediata { background: rgba(31,175,84,.18); color: #BFF3D2; border-color: rgba(191,243,210,.45); }
+.etiqueta-nuevo--verde { background: var(--whatsapp) !important; }
+.producto__badge--inmediata { background: var(--whatsapp); color: #fff; }
+.producto__badge--pocas { background: var(--terracota); color: #fff; }
+.producto__desc { font-size: .88rem; color: var(--texto-suave); line-height: 1.4; }
+.producto__acciones .btn--bloque { flex: 1; }
+.cargando { text-align: center; color: var(--texto-suave); padding: 22px; font-size: .95rem; }
+
+.tiras-inmediata { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.tiras-inmediata > div { display: flex; gap: 12px; align-items: center; background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); padding: 16px 18px; }
+.tiras-inmediata svg { width: 26px; height: 26px; color: var(--terracota); flex: none; }
+.tiras-inmediata strong { display: block; font-size: .98rem; }
+.tiras-inmediata div span { font-size: .84rem; color: var(--texto-suave); }
+@media (max-width: 820px) { .tiras-inmediata { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   PANEL DE ADMINISTRACIÓN
+   ========================================================= */
+body.admin { background: var(--crema-2); }
+.admin__barra {
+  position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap; background: var(--espresso); color: var(--crema); padding: 12px 20px;
+}
+.admin__barra .marca__nombre { color: var(--crema); font-size: 1.4rem; }
+.admin__barra .marca__lema { color: var(--caramelo); }
+.admin__barra-acciones { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.admin__usuario { font-size: .85rem; color: var(--caramelo-claro); }
+.admin__barra .btn { padding: 9px 16px; font-size: .88rem; background: rgba(255,255,255,.12); color: var(--crema); }
+.admin__barra .btn:hover { background: rgba(255,255,255,.22); }
+.admin__cuerpo { padding: 28px 0 80px; }
+
+.tarjeta-admin { background: var(--blanco); border-radius: var(--radio-lg); padding: clamp(20px, 4vw, 34px); box-shadow: var(--sombra); }
+.tarjeta-admin--login { max-width: 430px; margin: 8vh auto; }
+.form-admin { display: grid; gap: 16px; margin-top: 18px; }
+.form-admin .form-grid { margin: 0; }
+.ayuda { font-size: .8rem; color: var(--texto-suave); }
+.error-login { color: var(--terracota); font-weight: 600; font-size: .9rem; min-height: 1.2em; }
+.form-botones { display: flex; gap: 10px; flex-wrap: wrap; }
+.pasos-config { margin: 18px 0 0 18px; display: grid; gap: 10px; color: var(--texto-suave); }
+.pasos-config code { background: var(--crema-2); padding: 2px 6px; border-radius: 6px; font-size: .9em; }
+
+.switch { display: inline-flex; align-items: center; gap: 10px; background: var(--crema); border: 1.5px solid var(--borde); border-radius: 12px; padding: 13px 16px; font-weight: 600; cursor: pointer; }
+.switch input { width: 20px; height: 20px; accent-color: var(--whatsapp); }
+
+.previsualizacion { margin-top: 12px; display: flex; gap: 14px; align-items: center; }
+.previsualizacion img { width: 132px; aspect-ratio: 4/5; object-fit: cover; border-radius: 12px; border: 1px solid var(--borde); }
+.previsualizacion span { font-size: .85rem; color: var(--texto-suave); }
+
+.consejo-caja { background: #FBF3E8; border: 1.5px solid var(--caramelo); border-radius: var(--radio); padding: 14px 18px; font-size: .9rem; max-width: 46ch; }
+
+.lista-admin { display: grid; gap: 12px; }
+.fila { display: grid; grid-template-columns: 84px 1fr auto; gap: 16px; align-items: center; background: var(--blanco); border-radius: var(--radio); padding: 12px 16px; border: 1px solid var(--borde); }
+.fila--oculta { opacity: .55; }
+.fila img { width: 84px; aspect-ratio: 4/5; object-fit: cover; border-radius: 10px; background: var(--crema-2); }
+.fila__datos h3 { font-size: 1.02rem; }
+.fila__datos p { font-size: .88rem; color: var(--texto-suave); }
+.fila__meta { font-size: .82rem; color: var(--texto-suave); }
+.fila__meta .si { color: #0E7A3C; }
+.fila__meta .no { color: var(--terracota); }
+.fila__acciones { display: flex; gap: 8px; flex-wrap: wrap; }
+.fila__acciones .btn { padding: 9px 14px; font-size: .85rem; }
+.btn--borrar { background: #FBE7E3; color: #9B3521; }
+.btn--borrar:hover { background: #F5D2CB; }
+.vacio-admin { text-align: center; color: var(--texto-suave); padding: 30px; background: var(--blanco); border-radius: var(--radio); }
+
+.aviso { display: none; padding: 14px 18px; border-radius: var(--radio); margin-bottom: 18px; font-weight: 600; }
+.aviso.visible { display: block; }
+.aviso--ok { background: #E7F7EC; color: #0E7A3C; border: 1.5px solid #9BD9B2; }
+.aviso--error { background: #FBE7E3; color: #9B3521; border: 1.5px solid #E8B5AA; }
+
+@media (max-width: 720px) {
+  .fila { grid-template-columns: 64px 1fr; }
+  .fila img { width: 64px; }
+  .fila__acciones { grid-column: 1 / -1; }
+  .fila__acciones .btn { flex: 1; }
+  .admin__usuario { width: 100%; }
+}
+[hidden] { display: none !important; }

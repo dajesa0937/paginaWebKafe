@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrega inmediata | Inversiones K'FE Designs</title>
+  <meta name="description" content="Productos disponibles para entrega inmediata en Inversiones K'FE Designs. Despachamos hoy mismo a todo el país. Consulta disponibilidad por WhatsApp.">
+  <meta name="theme-color" content="#2B1B14">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-pagina="inmediata">
+  <div data-cabecera></div>
+
+  <main>
+    <section class="pagina-hero pagina-hero--inmediata">
+      <img src="img/opt/pijama-short-rayas-arcoiris.jpg" alt="" style="object-position:center 12%">
+      <div class="contenedor">
+        <p class="migas"><a href="index.html">Inicio</a> / Entrega inmediata</p>
+        <span class="chip-inmediata">● Disponible ahora</span>
+        <h1>Entrega inmediata<br>¡Aprovecha!</h1>
+        <p>Estas prendas ya están en bodega y se despachan hoy mismo. Son las últimas unidades de cada referencia: cuando se agotan, salen de esta lista.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+          <a class="btn btn--whatsapp" data-wa="Hola K'FE, vi la sección de ENTREGA INMEDIATA y quiero apartar unas prendas." data-icono="whatsapp">Apartar por WhatsApp</a>
+          <a class="btn btn--caramelo" href="catalogo.html">Ver todo el catálogo</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" style="padding-top:36px">
+      <div class="contenedor">
+        <div class="tiras-inmediata">
+          <div><span data-icono="camion"></span><div><strong>Despacho el mismo día</strong><span>Si confirmas antes de las 3:00 p. m.</span></div></div>
+          <div><span data-icono="etiqueta"></span><div><strong>Precio de fábrica</strong><span>Al detal y por mayor desde 6 und.</span></div></div>
+          <div><span data-icono="reloj"></span><div><strong>Últimas unidades</strong><span>Lo que ves aquí es lo que hay</span></div></div>
+        </div>
+
+        <p class="contador" id="contador-inmediata" style="margin-top:26px"></p>
+        <div class="grid-productos" id="grid-inmediata"></div>
+        <p id="estado-inmediata" class="cargando">Cargando productos disponibles...</p>
+
+        <div data-nota-compra></div>
+      </div>
+    </section>
+  </main>
+
+  <div data-pie></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/inmediata.js"></script>
+</body>
+</html>

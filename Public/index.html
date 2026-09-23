@@ -91,6 +91,22 @@
       </div>
     </section>
 
+    <!-- ENTREGA INMEDIATA -->
+    <section class="seccion" data-seccion-inmediata data-ocultar-si-vacio="si">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <div>
+            <span class="chip-inmediata">● Disponible ahora</span>
+            <h2 class="titulo" style="margin-top:10px">Entrega inmediata · ¡Aprovecha!</h2>
+            <p class="subtitulo">Estas prendas están en bodega y se despachan hoy mismo. Últimas unidades por referencia.</p>
+          </div>
+          <a class="btn btn--borde" href="entrega-inmediata.html">Ver todo lo disponible</a>
+        </div>
+        <div class="grid-productos" id="grid-inmediata" data-limite="4"></div>
+        <p id="estado-inmediata" class="cargando">Cargando productos disponibles...</p>
+      </div>
+    </section>
+
     <!-- MÁS PEDIDOS -->
     <section class="seccion seccion--blanca">
       <div class="contenedor">
@@ -207,6 +223,8 @@
 
   <script src="js/products.js"></script>
   <script src="js/layout.js"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/inmediata.js"></script>
   <script>
     document.getElementById("destacados").innerHTML = DESTACADOS_INICIO
       .map((id) => PRODUCTOS.find((p) => p.id === id)).filter(Boolean).map(crearTarjeta).join("");

@@ -52,6 +52,7 @@ function crearCabecera() {
         <ul class="menu" id="menu">
           <li><button class="icono-btn menu-cerrar" type="button" aria-label="Cerrar menú">${ICONOS.cerrar}</button></li>
           ${link("index.html", "Inicio", "inicio")}
+          ${link("entrega-inmediata.html", "Inmediata", "inmediata", '<span class="etiqueta-nuevo etiqueta-nuevo--verde">YA</span>')}
           ${link("catalogo.html", "Catálogo", "catalogo")}
           ${link("mujer.html", "Mujer", "mujer")}
           ${link("hombre.html", "Hombre", "hombre")}
@@ -121,6 +122,7 @@ function crearPie() {
               <li><a href="pijamas.html">Pijamas</a></li>
               <li><a href="jeans.html">Jeans</a></li>
               <li><a href="catalogo.html">Catálogo completo</a></li>
+              <li><a href="entrega-inmediata.html">Entrega inmediata</a></li>
             </ul>
           </div>
           <div>
